@@ -14,23 +14,19 @@
         href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300;14..32,400;14..32,500;14..32,600;14..32,700&display=swap"
         rel="stylesheet">
     <link rel="stylesheet" href="style.css">
+    <link rel="icon" type="image/png" href="resources/logo.png">
 
 </head>
 
 <body>
 
-    <!-- 
-  Navbar with Bootstrap responsive behavior:
-  - On desktop (lg and above): navbar expands, links visible horizontally, no toggler needed.
-  - On mobile/tablet (< lg): navbar collapses, hamburger button appears to toggle menu.
-  This matches exactly the requirement: "navbar to be shown normally and when the screen is for mobile phones then start showing the navbar using the button"
--->
     <header>
         <nav class="navbar navbar-expand-lg navbar-custom">
             <div class="container-fluid p-0">
                 <!-- Brand Logo -->
                 <a class="navbar-brand-custom" href="index.html">
-                    <i class="bi bi-handbag"></i>
+                    <!-- <i class="bi bi-handbag"></i> -->
+                    <img style="width:84px" src="resources/logo.png">
                     <span>TownTeen</span>
                 </a>
 
@@ -54,7 +50,7 @@
                             <a class="nav-link" href="products_index.html">Products</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="cart.html">Cart</a>
+                            <a class="nav-link" href="wishlist.html">Wishlist</a>
                         </li>
                     </ul>
 
@@ -157,14 +153,7 @@
                 </div>
 
                 <div class="row g-4 pb-5" id="products_grid">
-
-
-                    <!-- Load More Button -->
-
                 </div>
-
-
-
 
                 <div class="text-center mt-5">
                     <a href="products_index.html"
@@ -182,8 +171,9 @@
                     <!-- Brand column -->
                     <div class="col-md-6 col-lg-3">
                         <div class="d-flex align-items-center gap-2 mb-3">
-                            <i class="bi bi-handbag fs-4 text-brand-green"></i>
-                            <span class="fw-bold fs-4" style="color: #1a1a1a;">ModernWear</span>
+
+                            <img src="resources/logo.png" style="width:24px">
+                            <span class="fw-bold fs-4" style="color: #1a1a1a;">TownTeen</span>
                         </div>
                         <p class="small text-secondary">Premium fashion for the modern lifestyle. Quality craftsmanship
                             meets contemporary design.</p>
@@ -257,10 +247,10 @@
             });
         });
 
-
-        let maxRange = 4;
-        let minRange = 0;
+        const maxRange = 4;
+        let productsCounter = 0;
         let products_data;
+
         fetch('https://69bea7ae17c3d7d977929e89.mockapi.io/TownTeen/products')
             .then(res => res.json())
             .then(data => {
@@ -270,50 +260,53 @@
 
         function renderProducts(products) {
             const container = document.getElementById('products_grid');
-
-            // container.innerHTML = ""; // clear old content
-            products.forEach(product => {
-                if (product.id >= minRange && product.id <= maxRange) {
-                    const card = document.createElement('div');
-                    card.className = "col-sm-6 col-lg-4 col-xl-3";
-                    card.innerHTML = `
-                <div class="card h-100 border-0 shadow-sm rounded-4 overflow-hidden">
-                    <div class="position-relative" style="aspect-ratio: 1/1;">
-                        <img src=${product.image}
-                            class="card-img-top w-100 h-100 object-fit-cover" alt="Performance Athletic">
-                            <div class="position-absolute top-0 end-0 m-3">
-                                <div class="heart-icon"><i class="bi bi-heart" style="color: #4a4a4a;"></i></div>
-                            </div>
+            for (let product of products) {
+                if (productsCounter === maxRange) break;
+                const card = document.createElement('div');
+                card.className = "col-sm-6 col-lg-4 col-xl-3";
+                card.innerHTML = `
+                    <div class="hover-zoom card h-100 border-0 shadow-sm rounded-4 overflow-hidden">
+                        <div class="position-relative" style="aspect-ratio: 1/1;">
+                        <a href="product_detail.html?id=${product.id}">
+                                <img src=${product.image} class="card-img-top  w-100 h-100 object-fit-contain" alt="Performance Athletic">
+                            </a>
+                                <div class="position-absolute top-0 end-0 m-3">
+                                    <div class="heart-icon"><i class="bi bi-heart heart-emoji" style="color: #4a4a4a;"></i></div>
+                                </div>
+                        </div>
+                        <div class="card-body p-3">
+                            <span class="small text-secondary-emphasis">${product.category}</span>
+                            <h3 class="h6 fw-semibold mt-1 mb-2">${product.name}</h3>
+                            <div class="fw-bold fs-5" style="color: #2C5F2D;">$${product.price}</div>
+                        </div>
                     </div>
-                    <div class="card-body p-3">
-                        <span class="small text-secondary-emphasis">${product.category}</span>
-                        <h3 class="h6 fw-semibold mt-1 mb-2">${product.name}</h3>
-                        <div class="fw-bold fs-5" style="color: #2C5F2D;">$${product.price}</div>
-                    </div>
-                </div>
-        `;
-                    container.append(card);
+                `;
+                container.append(card);
+                productsCounter++;
+                const heartIconBtn = card.querySelector('.heart-icon');
+                const heartIconEmoji = card.querySelector('.heart-emoji');
+                if (localStorage.getItem(`wishlist-${product.id}`) !== null) {
+                    heartIconEmoji.classList.remove('bi-heart');
+                    heartIconEmoji.classList.add('bi-heart-fill');
+                    heartIconEmoji.style.color = '#e83e8c';
                 }
-            });
-
-            document.querySelectorAll('.heart-icon').forEach(heart => {
-                heart.addEventListener('click', function (e) {
-                    e.preventDefault();
-                    const icon = this.querySelector('i');
-                    if (icon.classList.contains('bi-heart')) {
-                        icon.classList.remove('bi-heart');
-                        icon.classList.add('bi-heart-fill');
-                        icon.style.color = '#e83e8c';
-                    } else {
-                        icon.classList.remove('bi-heart-fill');
-                        icon.classList.add('bi-heart');
-                        icon.style.color = '#4a4a4a';
+                heartIconBtn.addEventListener('click', () => {
+                    console.log('div event');
+                    if (heartIconEmoji.classList.contains('bi-heart')) {
+                        heartIconEmoji.classList.remove('bi-heart');
+                        heartIconEmoji.classList.add('bi-heart-fill');
+                        heartIconEmoji.style.color = '#e83e8c';
+                        localStorage.setItem(`wishlist-${product.id}`, true);
+                    }
+                    else {
+                        heartIconEmoji.classList.remove('bi-heart-fill');
+                        heartIconEmoji.classList.add('bi-heart');
+                        heartIconEmoji.style.color = '#4a4a4a';
+                        localStorage.removeItem(`wishlist-${product.id}`);
                     }
                 });
-            });
+            };
         }
-
-
     </script>
 </body>
 

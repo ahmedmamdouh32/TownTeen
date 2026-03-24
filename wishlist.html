@@ -1,0 +1,219 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+    <title>TownTeen | Premium Fashion</title>
+
+    <!-- Bootstrap 5 CSS + Icons + Core JS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Bootstrap Icons (alternative to lucide/iconify, but we keep universal style) -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+    <!-- Google Fonts for clean typography -->
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300;14..32,400;14..32,500;14..32,600;14..32,700&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+
+    <link rel="icon" type="image/png" href="resources/logo.png">
+</head>
+
+<body class="d-flex flex-column min-vh-100">
+
+    <!-- Header -->
+    <header>
+        <nav class="navbar navbar-expand-lg navbar-custom">
+            <div class="container-fluid p-0">
+                <!-- Brand Logo -->
+                <a class="navbar-brand-custom" href="index.html">
+                    <!-- <i class="bi bi-handbag"></i> -->
+                    <img style="width:84px" src="resources/logo.png">
+                    <span>TownTeen</span>
+                </a>
+
+                <!-- Navbar toggler (hamburger button) - visible only on mobile/tablet -->
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#mainNavbar"
+                    aria-controls="mainNavbar" aria-expanded="false" aria-label="Toggle navigation">
+                    <i class="bi bi-list fs-1" style="color: #2C5F2D;"></i>
+                </button>
+
+                <!-- Collapsible navbar content: links and icons (icons also reposition on collapse) -->
+                <div class="collapse navbar-collapse justify-content-between" id="mainNavbar">
+
+                    <div class="d-none d-lg-block" style="width: 120px;"></div>
+
+                    <!-- Centered navigation links on desktop, left on collapse -->
+                    <ul class="navbar-nav mx-auto mb-2 mb-lg-0 gap-lg-4 gap-2">
+                        <li class="nav-item">
+                            <a class="nav-link" href="index.html" ">Home</a>
+                        </li>
+                        <li class=" nav-item">
+                                <a class="nav-link" href="products_index.html">Products</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link active fw-semibold" href="wishlist.html"
+                                style="color: #2C5F2D;">Wishlist</a>
+                        </li>
+                    </ul>
+
+                    <!-- Right side icons: search & shopping bag with badge -->
+                    <div class="nav-icons ms-auto mt-3 mt-lg-0">
+                        <div class="position-relative d-inline-flex">
+                            <a href="cart.html" class="bi bi-bag fs-5 btn-icon-hover" style="color: #4a4a4a;"></a>
+                            <span class="position-absolute top-0 start-100 translate-middle badge" id="cartItemsSpan"
+                                style="border-radius: 24px; background-color: #2C5F2D;">0</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <main class="flex-grow-1">
+        <!-- Main Content: Cart Page -->
+        <div class="container-fluid px-4 px-lg-5 py-4">
+            <!-- Cart Header -->
+            <div class="d-flex flex-wrap mb-4 pt-3">
+                <h1 class="fs-2 fw-semibold" style="color: #1a1a1a;">Wishlist</h1>
+            </div>
+            <!-- Wishlist Items -->
+            <div class="row pb-5">
+                <!-- Left Column: Cart Items -->
+                <div class="col" id="products_grid">
+
+
+                </div>
+            </div>
+        </div>
+    </main>
+    <!-- Footer -->
+    <!-- Footer -->
+    <footer class="w-100 border-top mt-2" style="background-color: #F7F4EF; border-color: #e8e3dc !important;">
+        <div class="container-fluid px-4 px-lg-5 py-4">
+            <div class="d-flex flex-column flex-md-row justify-content-between align-items-center gap-3">
+                <div class="d-flex flex-wrap align-items-center gap-4">
+                    <div class="d-flex align-items-center gap-2">
+                        <div class="rounded d-flex align-items-center justify-content-center"
+                            style="width: 28px; height: 28px;">
+                            <img src="resources/logo.png" style="width:24px">
+                        </div>
+                        <span class="fw-semibold" style="color: #1a1a1a;">TownTeen</span>
+                    </div>
+                    <div class="d-flex gap-3">
+                        <a href="#" class="text-decoration-none small" style="color: #4a4a4a;">About Us</a>
+                        <a href="#" class="text-decoration-none small" style="color: #4a4a4a;">Contact</a>
+                        <a href="#" class="text-decoration-none small" style="color: #4a4a4a;">Privacy Policy</a>
+                        <a href="#" class="text-decoration-none small" style="color: #4a4a4a;">Terms</a>
+                    </div>
+                </div>
+                <div class="d-flex align-items-center gap-4">
+                    <div class="d-flex gap-3">
+                        <a href="#" class="text-decoration-none" style="color: #4a4a4a;"><i
+                                class="bi bi-facebook fs-5"></i></a>
+                        <a href="#" class="text-decoration-none" style="color: #4a4a4a;"><i
+                                class="bi bi-twitter-x fs-5"></i></a>
+                        <a href="#" class="text-decoration-none" style="color: #4a4a4a;"><i
+                                class="bi bi-instagram fs-5"></i></a>
+                    </div>
+                    <span class="small" style="color: #707070;">© 2024 StyleShop. All rights reserved.</span>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Bootstrap JS for responsive navbar toggler -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
+
+
+    <script>
+        let totalCartQuantity = localStorage.getItem("totalCartQuantity");
+        const cartItemsSpan = document.getElementById('cartItemsSpan');
+        if (totalCartQuantity !== null) {
+            cartItemsSpan.innerText = totalCartQuantity;
+        }
+        let WishlistProductsCounter;
+        fetch('https://69bea7ae17c3d7d977929e89.mockapi.io/TownTeen/products')
+            .then(res => res.json())
+            .then(data => {
+                const Wishlist_products = data.filter(product => localStorage.getItem(`wishlist-${product.id}`) !== null);
+                console.log(Wishlist_products);
+                WishlistProductsCounter = Wishlist_products.length;
+                console.log(WishlistProductsCounter);
+                if (Wishlist_products.length > 0) {
+                    renderProducts(Wishlist_products);
+                }
+                else {
+                    renderEmptyList();
+                }
+            });
+
+        function renderProducts(products) {
+            for (let product of products) {
+                const container = document.getElementById('products_grid');
+                const card = document.createElement('div');
+                card.className = "card border-0 mb-4 rounded-4 overflow-hidden";
+                card.style = "background-color: #fdfcfa";
+                card.innerHTML =
+                    `<div class="card-body p-4">
+                            <div class="row g-3 align-items-start">
+                                <div class="col-auto">
+                                    <a href="product_detail.html?id=${product.id}">
+                                        <img src=${product.image}
+                                            class="rounded-3 object-fit-cover" style="width: 80px; height: 80px;"
+                                            alt="${product.name}">
+                                    </a>
+                                </div>
+                                <div class="col">
+                                    <div class="d-flex flex-wrap justify-content-between align-items-start">
+                                        <div class="mb-2">
+                                            <a class="text-decoration-none" href="product_detail.html?id=${product.id}">
+                                                <h3 class="h6 fw-semibold mb-1" style="color: #1a1a1a;">${product.name}</h3>
+                                            </a>
+                                            <div class="d-flex gap-3 small" style="color: #707070;">
+                                                <span>${product.category}</span>
+                                            </div>
+                                            <span class="fw-bold fs-6" style="color: #2C5F2D;">$${product.price}</span>
+                                        </div>
+                                        <button class="btn btn-link p-0 text-secondary-emphasis border-0 btn-trash"
+                                            style="color: #a0a0a0;">
+                                            <i class="bi bi-trash3 fs-6"></i>
+                                        </button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    `;
+
+                const btnTrash = card.querySelector('.btn-trash');
+
+                btnTrash.addEventListener('click', () => {
+                    localStorage.removeItem(`wishlist-${product.id}`);
+                    container.removeChild(card);
+                    WishlistProductsCounter--;
+                    if (WishlistProductsCounter === 0) {
+                        renderEmptyList();
+                    }
+                })
+                container.prepend(card);
+            }
+        }
+
+        function renderEmptyList() {
+            const container = document.getElementById('products_grid');
+            const emptyListElement = document.createElement('div');
+            emptyListElement.className = 'empty-wishlist text-center';
+            emptyListElement.innerHTML = `
+                <i class="bi bi-heart fs-1"></i>
+                <h3>Your wishlist is empty</h3>
+                <p>Start adding items to your wishlist!</p>
+                <a href="index.html" style="background-color: #2C5F2D; border-color: #2C5F2D;"
+                    class="btn btn-primary my-3">Continue
+                    Shopping</a>
+            `;
+            container.append(emptyListElement);
+        }
+    </script>
+</body>
+
+</html>
