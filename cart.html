@@ -207,14 +207,18 @@
                 <div class="card-body p-4">
                         <div class="row g-3 align-items-start">
                             <div class="col-auto">
-                                <img src=${product.image}
-                                    class="rounded-3 object-fit-cover" style="width: 80px; height: 80px;"
-                                    alt="${product.name}">
+                                <a href="product_detail.html?id=${product.id}">
+                                    <img src=${product.image}
+                                        class="rounded-3 object-fit-cover" style="width: 80px; height: 80px;"
+                                        alt="${product.name}">
+                                </a>
                             </div>
                             <div class="col">
                                 <div class="d-flex flex-wrap justify-content-between align-items-start">
                                     <div class="mb-2">
-                                        <h3 class="h6 fw-semibold mb-1" style="color: #1a1a1a;">${product.name}</h3>
+                                        <a class="text-decoration-none" href="product_detail.html?id=${product.id}">
+                                                <h3 class="h6 fw-semibold mb-1" style="color: #1a1a1a;">${product.name}</h3>
+                                            </a>
                                         <div class="d-flex gap-3 small" style="color: #707070;">
                                             <span>${product.category}</span>
                                         </div>

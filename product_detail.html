@@ -175,7 +175,9 @@
         <!-- You May Also Like Section -->
         <div class="border-top pt-5 pb-5" style="border-color: #e8e3dc;">
             <h2 class="fs-2 fw-semibold mb-4" style="color: #1a1a1a;">You May Also Like</h2>
-            <div class="row g-4" id="related_products">
+            <div class="container">
+                <div class="row g-4" id="related_products">
+                </div>
             </div>
         </div>
     </main>
@@ -258,8 +260,7 @@
                         <div class="position-relative rounded-4 overflow-hidden"
                             style="background-color: #fdfcfa; aspect-ratio: 1/1;">
                             <img src=${product.image}
-                                class="w-100 h-100 object-fit-cover" alt="Classic Cotton Tee">
-                            
+                                class="w-100 h-100 object-fit-contain" alt="Classic Cotton Tee">
                         </div>
                     </div>
                 </div>
@@ -295,7 +296,7 @@
         for (const product of products) {
 
             const card = document.createElement('div');
-            card.className = "col-sm-6 col-lg-4 col-xl-3";
+            card.className = "col-6 col-lg-4 col-xl-3";
             card.innerHTML =
                 `
                 <div class="hover-zoom card h-100 border-0 shadow-sm rounded-4 overflow-hidden">

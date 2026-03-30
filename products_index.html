@@ -182,8 +182,16 @@
 
                     </div>
                 </div>
-            </div>
 
+            </div>
+            <div class="container" id="layout_buttons">
+                <div class="row justify-content-center">
+                    <div class="col-3 d-flex justify-content-center mb-3">
+                        <img class="mx-1" width=" 20" height="20" src=" resources/grid.png" id="singleColumnBtn" />
+                        <img class="mx-1" width=" 20" height="20" src="resources/column.png" id="doubleColumnBtn" />
+                    </div>
+                </div>
+            </div>
             <!-- Products grid: row + cols (Bootstrap grid system) -->
             <div class="row g-4 pb-5" id="products_grid">
 
@@ -236,6 +244,25 @@
 
 
 <script>
+    //logic for layout buttons that appear on small screens
+    const layout_buttons_div = document.getElementById('layout_buttons');
+    layout_buttons_div.style.display = (window.innerWidth < 600) ? 'block' : 'none';
+    window.addEventListener("resize", () => layout_buttons_div.style.display = (window.innerWidth < 600) ? 'block' : 'none');
+    let current_columns = 2; //default value
+    const singleColumnBtn = document.getElementById('singleColumnBtn');
+    const doubleeColumnBtn = document.getElementById('doubleColumnBtn');
+    const products_grid_class = document.getElementsByClassName('products_grid_class');
+
+    singleColumnBtn.addEventListener('click', () => {
+        for (card of products_grid_class) card.classList.remove('col-6');
+        current_columns = 1;
+    });
+    doubleeColumnBtn.addEventListener('click', () => {
+        for (card of products_grid_class) card.classList.add('col-6');
+        current_columns = 2;
+    });
+    /////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
     const filter_bar_items = document.getElementById('filter_bar_items');
     const checkboxes = document.querySelectorAll('input[type="checkbox"]');
     const showingProductsOutOf = document.getElementById('showingProductsOutOf');
@@ -287,13 +314,14 @@
         // container.innerHTML = ""; // clear old content
         for (const product of products) {
             const card = document.createElement('div');
-            card.className = "col-sm-6 col-lg-4 col-xl-3";
+            card.className = "col-lg-4 col-xl-3 products_grid_class";
+            if (current_columns === 2) card.classList.add('col-6');
             card.innerHTML =
                 `
                 <div class="hover-zoom card h-100 border-0 shadow-sm rounded-4 overflow-hidden">
                     <div class="position-relative" style="aspect-ratio: 1/1;">
                         <a href="product_detail.html?id=${product.id}">
-                            <img src=${product.image} class="card-img-top  w-100 h-100 object-fit-contain" alt="Performance Athletic">
+                            <img src=${product.image} class="card-img-top w-100 object-fit-contain" alt="Performance Athletic">
                         </a>
                         <div class="position-absolute top-0 end-0 m-3">
                             <div class="heart-icon"><i class="bi bi-heart heart-emoji" style="color: #4a4a4a;"></i></div>
