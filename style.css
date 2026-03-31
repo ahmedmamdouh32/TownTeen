@@ -277,26 +277,43 @@
 
 
 
+
+
 .video-container {
-    position: relative; /* Establishes positioning context */
-    width: 100%; /* Adjust width as needed */
-    height: auto; /* Adjust height as needed */
+  position: relative;
+  width: 100%;
+  overflow: hidden;
+}
+
+.video-container video {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover; 
+}
+
+/* .video-container {
+    position: relative; 
+    width: 100%;
+    height: auto; 
 }
 
 .video-container video {
     width: 100%;
     height: auto;
-    display: block;
-}
+    display: block; 
+} */
 
-.video-overlay-text {
-    position: absolute !important; /* Position relative to the container */
-    top: 50% !important; /* Center vertically */
-    left: 50% !important; /* Center horizontally */
-    transform: translate(-50%, -50%) !important; /* Precisely center the element */
-    z-index: 1; /* Ensure text is above the video */
+/* .video-overlay-text {
+    position: absolute !important; 
+    top: 50% !important;
+    left: 50% !important; 
+    transform: translate(-50%, -50%) !important; 
+    z-index: 1; 
     color: white;
-    /* font-size: 3em; */
+  
     text-align: center !important;
-    /* Add more styling here (text-shadow for readability, etc.) */
-}
+   
+} */

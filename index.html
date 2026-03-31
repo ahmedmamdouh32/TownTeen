@@ -69,7 +69,7 @@
 
     <main>
         <!-- hero section for mobile view -->
-        <section class=" position-relative w-100 mobile-view-hero"
+        <!-- <section class=" position-relative w-100 mobile-view-hero"
             style="display: none ;min-height: 600px; background-image: url('https://static.paraflowcontent.com/public/resource/image/a74d214f-191f-445a-be1c-9409bee812e2.jpeg'); background-size: cover; background-position: center;">
             <div class="position-absolute top-0 start-0 w-100 h-100" style="background-color: rgba(44, 95, 45, 0.2);">
             </div>
@@ -86,22 +86,26 @@
                     </a>
                 </div>
             </div>
-        </section>
+        </section> -->
 
         <!-- hero section for desktop -->
-        <section class="video-container desktop-view-hero" style="display: none">
-            <div class="position-absolute top-0 start-0 w-100 h-100" style="background-color: rgba(44, 95, 45, 0.2);">
+        <section class="video-container desktop-view-hero">
+
+            <div class="position-absolute top-0 start-0 w-100 h-100"
+                style="z-index: 10000 !important; background-color: rgba(44, 95, 45, 0.2);">
             </div>
             <video autoplay muted loop class="img-cover">
-                <source src="resources/heroVideo.mp4" type="video/mp4">
+                <source src="resources/main-hero-video.mp4" type="video/mp4">
                 Your browser does not support the video tag.
             </video>
 
-            <div class="video-overlay-text container h-100 d-flex align-items-center justify-content-center position-relative py-5"
-                style="min-height: 600px;">
+            <div class="container h-100 d-flex align-items-center justify-content-center position-relative py-5"
+                style="min-height: 600px; z-index: 10000 !important;">
                 <div class="text-center text-white px-3" style="max-width: 720px;">
-                    <h1 class="display-4 fw-bold mb-3 hero-title">Discover Your Perfect Style with Premium Fashion</h1>
-                    <p class="fs-5 mb-4 opacity-90 hero-sub">Quality craftsmanship meets modern design. Shop our curated
+                    <h1 class="display-4 fw-bold mb-3 hero-title" style="color:#214e22 !important">Discover Your Perfect
+                        Style with Premium Fashion</h1>
+                    <p class="fs-5 mb-4 opacity-90 hero-sub" style="color:#2C5F2D !important">Quality craftsmanship
+                        meets modern design. Shop our curated
                         collection of premium apparel designed for the contemporary lifestyle.</p>
                     <a href="products_index.html"
                         class="btn btn-light btn-lg rounded-pill px-5 py-3 fw-semibold d-inline-flex align-items-center gap-2"
@@ -113,14 +117,17 @@
 
         </section>
 
+
+
+
         <script>
-            const mobileViewHero = document.querySelector('.mobile-view-hero');
-            const desktopViewHero = document.querySelector('.desktop-view-hero');
-            function adjustHeroSection() {
-                mobileViewHero.style.display = (window.innerWidth < 600) ? 'block' : 'none';
-                desktopViewHero.style.display = (window.innerWidth >= 600) ? 'block' : 'none';
-            }
-            adjustHeroSection();            
+            // const mobileViewHero = document.querySelector('.mobile-view-hero');
+            // const desktopViewHero = document.querySelector('.desktop-view-hero');
+            // function adjustHeroSection() {
+            //     // mobileViewHero.style.display = (window.innerWidth < 600) ? 'block' : 'none';
+            //     desktopViewHero.style.display = (window.innerWidth >= 600) ? 'block' : 'none';
+            // }
+            // adjustHeroSection();            
         </script>
 
         <section class="section-pad">
@@ -250,61 +257,61 @@
         </footer>
     </main>
 
-    < !--Bootstrap JS Bundle for responsive navbar toggler-->
-        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
-        <script>
+    <!-- < !--Bootstrap JS Bundle for responsive navbar toggler--> -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
+    <script>
 
-            // const mobileViewHero = document.querySelector('.mobile-view-hero');
-            // const desktopViewHero = document.querySelector('.desktop-view-hero');
-            // function adjustHeroSection() {
-            //     mobileViewHero.style.display = (window.innerWidth < 600) ? 'block' : 'none';
-            //     desktopViewHero.style.display = (window.innerWidth >= 600) ? 'block' : 'none';
-            // }
-            // adjustHeroSection();
+        // const mobileViewHero = document.querySelector('.mobile-view-hero');
+        // const desktopViewHero = document.querySelector('.desktop-view-hero');
+        // function adjustHeroSection() {
+        //     mobileViewHero.style.display = (window.innerWidth < 600) ? 'block' : 'none';
+        //     desktopViewHero.style.display = (window.innerWidth >= 600) ? 'block' : 'none';
+        // }
+        // adjustHeroSection();
 
-            window.addEventListener("resize", () => adjustHeroSection());
+        // window.addEventListener("resize", () => adjustHeroSection());
 
 
-            let totalCartQuantity = localStorage.getItem("totalCartQuantity");
-            const cartItemsSpan = document.getElementById('cartItemsSpan');
+        let totalCartQuantity = localStorage.getItem("totalCartQuantity");
+        const cartItemsSpan = document.getElementById('cartItemsSpan');
 
-            if (totalCartQuantity !== null) {
-                cartItemsSpan.innerText = totalCartQuantity;
-            }
-            document.querySelectorAll('.heart-icon').forEach(heart => {
-                heart.addEventListener('click', function (e) {
-                    e.preventDefault();
-                    const icon = this.querySelector('i');
-                    if (icon.classList.contains('bi-heart')) {
-                        icon.classList.remove('bi-heart');
-                        icon.classList.add('bi-heart-fill');
-                        icon.style.color = '#e83e8c';
-                    } else {
-                        icon.classList.remove('bi-heart-fill');
-                        icon.classList.add('bi-heart');
-                        icon.style.color = '#4a4a4a';
-                    }
-                });
+        if (totalCartQuantity !== null) {
+            cartItemsSpan.innerText = totalCartQuantity;
+        }
+        document.querySelectorAll('.heart-icon').forEach(heart => {
+            heart.addEventListener('click', function (e) {
+                e.preventDefault();
+                const icon = this.querySelector('i');
+                if (icon.classList.contains('bi-heart')) {
+                    icon.classList.remove('bi-heart');
+                    icon.classList.add('bi-heart-fill');
+                    icon.style.color = '#e83e8c';
+                } else {
+                    icon.classList.remove('bi-heart-fill');
+                    icon.classList.add('bi-heart');
+                    icon.style.color = '#4a4a4a';
+                }
+            });
+        });
+
+        const maxRange = 4;
+        let productsCounter = 0;
+        let products_data;
+
+        fetch('https://69bea7ae17c3d7d977929e89.mockapi.io/TownTeen/products')
+            .then(res => res.json())
+            .then(data => {
+                products_data = data;
+                renderProducts(data);
             });
 
-            const maxRange = 4;
-            let productsCounter = 0;
-            let products_data;
-
-            fetch('https://69bea7ae17c3d7d977929e89.mockapi.io/TownTeen/products')
-                .then(res => res.json())
-                .then(data => {
-                    products_data = data;
-                    renderProducts(data);
-                });
-
-            function renderProducts(products) {
-                const container = document.getElementById('products_grid');
-                for (let product of products) {
-                    if (productsCounter === maxRange) break;
-                    const card = document.createElement('div');
-                    card.className = "col-sm-6 col-lg-4 col-xl-3";
-                    card.innerHTML = `
+        function renderProducts(products) {
+            const container = document.getElementById('products_grid');
+            for (let product of products) {
+                if (productsCounter === maxRange) break;
+                const card = document.createElement('div');
+                card.className = "col-sm-6 col-lg-4 col-xl-3";
+                card.innerHTML = `
             <div class="hover-zoom card h-100 border-0 shadow-sm rounded-4 overflow-hidden">
                 <div class="position-relative" style="aspect-ratio: 1/1;">
                     <a href="product_detail.html?id=${product.id}">
@@ -321,33 +328,33 @@
                 </div>
             </div>
             `;
-                    container.append(card);
-                    productsCounter++;
-                    const heartIconBtn = card.querySelector('.heart-icon');
-                    const heartIconEmoji = card.querySelector('.heart-emoji');
-                    if (localStorage.getItem(`wishlist-${product.id}`) !== null) {
+                container.append(card);
+                productsCounter++;
+                const heartIconBtn = card.querySelector('.heart-icon');
+                const heartIconEmoji = card.querySelector('.heart-emoji');
+                if (localStorage.getItem(`wishlist-${product.id}`) !== null) {
+                    heartIconEmoji.classList.remove('bi-heart');
+                    heartIconEmoji.classList.add('bi-heart-fill');
+                    heartIconEmoji.style.color = '#e83e8c';
+                }
+                heartIconBtn.addEventListener('click', () => {
+                    console.log('div event');
+                    if (heartIconEmoji.classList.contains('bi-heart')) {
                         heartIconEmoji.classList.remove('bi-heart');
                         heartIconEmoji.classList.add('bi-heart-fill');
                         heartIconEmoji.style.color = '#e83e8c';
+                        localStorage.setItem(`wishlist-${product.id}`, true);
                     }
-                    heartIconBtn.addEventListener('click', () => {
-                        console.log('div event');
-                        if (heartIconEmoji.classList.contains('bi-heart')) {
-                            heartIconEmoji.classList.remove('bi-heart');
-                            heartIconEmoji.classList.add('bi-heart-fill');
-                            heartIconEmoji.style.color = '#e83e8c';
-                            localStorage.setItem(`wishlist-${product.id}`, true);
-                        }
-                        else {
-                            heartIconEmoji.classList.remove('bi-heart-fill');
-                            heartIconEmoji.classList.add('bi-heart');
-                            heartIconEmoji.style.color = '#4a4a4a';
-                            localStorage.removeItem(`wishlist-${product.id}`);
-                        }
-                    });
-                };
-            }
-        </script>
+                    else {
+                        heartIconEmoji.classList.remove('bi-heart-fill');
+                        heartIconEmoji.classList.add('bi-heart');
+                        heartIconEmoji.style.color = '#4a4a4a';
+                        localStorage.removeItem(`wishlist-${product.id}`);
+                    }
+                });
+            };
+        }
+    </script>
 </body>
 
 </html>
