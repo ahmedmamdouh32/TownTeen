@@ -1,0 +1,89 @@
+<aside class="bg-light flex-shrink-0 border-end collapse show " id="asideFilterBar"
+    style="background-color: #fdfcfa !important; width: 100%; max-width: 280px; border-color: #e8e3dc !important;">
+    <div class="p-4">
+        <!-- Filters header -->
+        <div class="d-flex justify-content-between align-items-center mb-4">
+            <h3 class="fs-5 fw-semibold mb-0" style="color: #1a1a1a;">Filters</h3>
+            <button class="btn btn-link text-decoration-none p-0 small" style="color: #2C5F2D;" id="clearAll">Clear
+                All</button>
+        </div>
+
+        <!-- Category filter -->
+        <div class="mb-4">
+            <h4 class="fs-6 fw-semibold mb-3" style="color: #1a1a1a;">Category</h4>
+            <div class="d-flex flex-column gap-2">
+                <div class="form-check">
+                    <input class="form-check-input categories" type="checkbox" value="T-shirts" id="catTshirts">
+                    <label class="form-check-label small" for="catTshirts" style="color: #1a1a1a;">T-shirts</label>
+                </div>
+                <div class="form-check">
+                    <input class="form-check-input categories" type="checkbox" value="Shoes" id="catShorts">
+                    <label class="form-check-label small" for="catShorts" style="color: #1a1a1a;">Shoes</label>
+                </div>
+                <div class="form-check">
+                    <input class="form-check-input categories" type="checkbox" value="Shirts" id="catShirts">
+                    <label class="form-check-label small" for="catShirts" style="color: #1a1a1a;">Shirts</label>
+                </div>
+                <div class="form-check">
+                    <input class="form-check-input categories" type="checkbox" value="Hoodies" id="catHoodies">
+                    <label class="form-check-label small" for="catHoodies" style="color: #1a1a1a;">Hoodies</label>
+                </div>
+            </div>
+        </div>
+
+        <!-- Price filter -->
+        <div class="mb-4">
+            <h4 class="fs-6 fw-semibold mb-3" style="color: #1a1a1a;">Price</h4>
+            <div class="d-flex flex-column gap-2">
+                <div class="form-check">
+                    <input class="form-check-input" id="priceLowToHigh" type="radio" name="priceOrder" value="under 25$"
+                        id="priceUnder25">
+                    <label class="form-check-label small" for="priceUnder25">Low to High</label>
+                </div>
+                <div class="form-check">
+                    <input class="form-check-input" id="priceHighToLow" type="radio" name="priceOrder" value="$25 - $50"
+                        id="price25to50">
+                    <label class="form-check-label small" for="price25to50">High to Low</label>
+                </div>
+
+            </div>
+        </div>
+
+        <!-- Size filter (pill buttons) -->
+        <div class="mb-4">
+            <h4 class="fs-6 fw-semibold mb-3" style="color: #1a1a1a;">Size</h4>
+            <div class="d-flex flex-wrap gap-2">
+                <div class="form-check">
+                    <input class="form-check-input d-none" type="checkbox" value="XS" id="sizeXS">
+                    <label class="btn btn-sm rounded-pill px-3 py-1" for="sizeXS"
+                        style="background-color: #f7f4ef; color: #4a4a4a;">XS</label>
+                </div>
+                <div class="form-check">
+                    <input class="form-check-input d-none" type="checkbox" value="S" id="sizeS" checked>
+                    <label class="btn btn-sm rounded-pill px-3 py-1" for="sizeS"
+                        style="background-color: #f7f4ef; color: #4a4a4a;">S</label>
+                </div>
+                <div class="form-check">
+                    <input class="form-check-input d-none" type="checkbox" value="M" id="sizeM">
+                    <label class="btn btn-sm rounded-pill px-3 py-1" for="sizeM"
+                        style="background-color: #f7f4ef; color: #4a4a4a;">M</label>
+                </div>
+                <div class="form-check">
+                    <input class="form-check-input d-none" type="checkbox" value="L" id="sizeL">
+                    <label class="btn btn-sm rounded-pill px-3 py-1" for="sizeL"
+                        style="background-color: #f7f4ef; color: #4a4a4a;">L</label>
+                </div>
+                <div class="form-check">
+                    <input class="form-check-input d-none" type="checkbox" value="XL" id="sizeXL">
+                    <label class="btn btn-sm rounded-pill px-3 py-1" for="sizeXL"
+                        style="background-color: #f7f4ef; color: #4a4a4a;">XL</label>
+                </div>
+                <div class="form-check">
+                    <input class="form-check-input d-none" type="checkbox" value="XXL" id="sizeXXL">
+                    <label class="btn btn-sm rounded-pill px-3 py-1" for="sizeXXL"
+                        style="background-color: #f7f4ef; color: #4a4a4a;">XXL</label>
+                </div>
+            </div>
+        </div>
+    </div>
+</aside>

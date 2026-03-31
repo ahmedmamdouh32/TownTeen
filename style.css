@@ -274,3 +274,29 @@
                 gap: 1rem;
             }
         }
+
+
+
+.video-container {
+    position: relative; /* Establishes positioning context */
+    width: 100%; /* Adjust width as needed */
+    height: auto; /* Adjust height as needed */
+}
+
+.video-container video {
+    width: 100%;
+    height: auto;
+    display: block;
+}
+
+.video-overlay-text {
+    position: absolute !important; /* Position relative to the container */
+    top: 50% !important; /* Center vertically */
+    left: 50% !important; /* Center horizontally */
+    transform: translate(-50%, -50%) !important; /* Precisely center the element */
+    z-index: 1; /* Ensure text is above the video */
+    color: white;
+    /* font-size: 3em; */
+    text-align: center !important;
+    /* Add more styling here (text-shadow for readability, etc.) */
+}
