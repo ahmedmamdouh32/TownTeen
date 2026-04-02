@@ -294,6 +294,8 @@
   object-fit: cover; 
 }
 
+
+
 /* .video-container {
     position: relative; 
     width: 100%;
@@ -317,3 +319,25 @@
     text-align: center !important;
    
 } */
+
+
+.add-to-cart-cotainer {
+            border: solid 5px #2C5F2D;
+            background-color: #2C5F2D;
+            width: 250px;
+            height: 60px;
+            border-radius: 16px;
+            position:fixed;
+        }
+
+
+.fade {
+    opacity: 0;
+    transform: translateY(0px);
+    transition: opacity 0.5s ease, transform 0.5s ease;
+}
+
+.fade.show {
+    opacity: 1;
+    transform: translateY(-20px);
+}
